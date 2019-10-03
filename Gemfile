@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 gem 'devise'
 gem 'httparty', '~> 0.17.0'
+gem 'foundation-rails'
+gem 'autoprefixer-rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 # Use Capistrano for deployment
