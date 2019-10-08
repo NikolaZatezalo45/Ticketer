@@ -1,0 +1,20 @@
+= render 'shared/navbar'
+.form-container
+    h2 Current Events
+    - if @upcomingEvents.present?
+        - @upcomingEvents.each do |event|
+            =event.name
+            br
+    -else
+        b There no Current Events
+    h2 Past Events
+    - if @pastEvents.present?
+        - @pastEvents.each do |event|
+            =event.name
+            br
+    -else
+        b There no Past Events
+    br
+    br
+    .actions
+        = button_to( "Create Event", new_event_path, :method => :get)

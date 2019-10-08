@@ -1,0 +1,30 @@
+.form-container {
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: left;
+
+    h2 {
+      color: rgb(119, 172, 241);
+      text-align: left;
+    }
+    th{
+      
+    color: rgb(119, 172, 241);
+    text-align: center;
+    font-size: 25px;
+    }
+    .actions {
+      input {
+        display: block;
+        width: 25%;
+        border: 1px solid #1779ba;
+        background-color: whitesmoke;
+        padding: 14px 28px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+      }
+    }
+
+}

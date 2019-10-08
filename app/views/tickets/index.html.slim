@@ -1,0 +1,20 @@
+= render 'shared/navbar'
+.form-container
+    h2 Tickets
+    - if @tickets.present?
+        table
+            tr
+                th
+                    b Serial Number
+                th
+                    b Event
+                th
+                    b Price
+                - @tickets.each do |ticket|
+                        tr
+                            td = ticket.number
+                            td = ticket.event.name
+                            td = ticket.price
+    - else
+        b There are currently no Tickets
+

@@ -1,18 +1,20 @@
-h1 Your Profile
-b Name
-br
-="#{@user.first_name} #{@user.last_name}"
-br
-br
-b email
-br
-=@user.email
-br
-br
-b Type
-br
-=@user.type
-br
-
-=link_to 'Sign out', destroy_user_session_path, method: :delete
-
+= render 'shared/navbar'
+.form-container
+    h2 Your Profile
+    b Name
+    br
+    ="#{@user.first_name} #{@user.last_name}"
+    br
+    br
+    b email
+    br
+    =@user.email
+    br
+    br
+    b Type
+    br
+    =@user.type
+    br
+    br
+    .actions
+        = button_to( "My Events", user_events_path(@user), :method => :get)
