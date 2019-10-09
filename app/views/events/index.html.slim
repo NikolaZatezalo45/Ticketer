@@ -3,14 +3,14 @@
     h2 Current Events
     - if @upcomingEvents.present?
         - @upcomingEvents.each do |event|
-            =event.name
+            =link_to event.name, event_path(event)
             br
     -else
         b There no Current Events
     h2 Past Events
     - if @pastEvents.present?
         - @pastEvents.each do |event|
-            =event.name
+            =link_to event.name, event_path(event)
             br
     -else
         b There no Past Events

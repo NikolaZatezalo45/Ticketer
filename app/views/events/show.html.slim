@@ -1,0 +1,24 @@
+= render 'shared/navbar'
+.form-container
+  h2 Event
+  table
+    tr
+      th
+        b Name
+      th
+        b Category
+      th
+        b Date
+      th
+        -if @event.date >= Date.today
+          b Available Tickets
+        -else
+          b Tickets Sold
+      tr
+        td = @event.name
+        td = @event.category.name
+        td = @event.date
+        -if @event.date >= Date.today
+          td = @event.available_tickets
+        -else
+          td = @event.tickets_sold

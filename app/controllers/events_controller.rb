@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:show]
+
   def index
     @events = Event.all
     @upcomingEvents = @events.upcomingEvents
@@ -8,8 +10,8 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
   end
-  def show 
 
+  def show
   end
 
   def create
@@ -21,6 +23,11 @@ class EventsController < ApplicationController
   end
 
   private
+
+    def set_event
+      @event = Event.find(params[:id])
+    end
+
     def event_params
       params.require(:event).permit(
         :name,
