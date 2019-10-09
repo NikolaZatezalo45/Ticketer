@@ -10,11 +10,21 @@
                     b Event
                 th
                     b Price
+                th
+                    b Sold Originally
+                th
+                    b On Resell
+                th
+                    b Sold On Marketplace
                 - @tickets.each do |ticket|
                         tr
                             td = ticket.number
                             td = ticket.event.name
                             td = ticket.price
+                            td = ticket.sold_originally
+                            td = ticket.onresell
+                            td = ticket.sold_on_marketplace
+
     - else
         b There are currently no Tickets
 
