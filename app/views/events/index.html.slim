@@ -16,5 +16,6 @@
         b There no Past Events
     br
     br
-    .actions
-        = button_to( "Create Event", new_event_path, :method => :get)
+    -if current_user.is_admin?
+        .actions
+            = button_to( "Create Event", new_event_path, :method => :get)

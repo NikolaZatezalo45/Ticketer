@@ -1,6 +1,6 @@
 - if user_signed_in?
   ul.menu.align-right
-    - if current_user.type == "Admin"
+    - if current_user.is_admin?
       li = link_to 'My Profile', user_path(current_user)
       .dropdown
         button.dropbtn Categories
@@ -16,7 +16,7 @@
       li = link_to 'Tickets', tickets_index_path
     - else
         li = link_to 'My Profile', user_path(current_user)
-        li = link_to 'Account', user_path(current_user)
+        li = link_to 'Account', account_path(current_user)
         li = link_to 'Events', events_path
         li = link_to 'Marketplace', user_path(current_user)
     li = link_to 'Log out', destroy_user_session_path, method: :delete

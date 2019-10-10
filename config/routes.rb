@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'account_transactions/show'
+  get 'accounts/:id', to: 'accounts#show', as: 'account'
   get 'tickets/index'
   get 'tickets/show'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :categories
   resources :events
   get '/users/:id', to: 'users#show', as: 'user'

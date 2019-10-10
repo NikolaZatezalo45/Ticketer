@@ -16,5 +16,6 @@
     =@user.type
     br
     br
-    .actions
-        = button_to( "My Events", user_events_path(@user), :method => :get)
+    -if current_user.is_admin?
+        .actions
+            = button_to( "My Events", user_events_path(@user), :method => :get)
