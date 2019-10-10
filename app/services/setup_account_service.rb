@@ -4,9 +4,7 @@ class SetupAccountService < ApplicationService
   end
 
   def call
-    @account = Account.create(user_id: @current_user.id, amount: 0)
+    @account = Account.create(user_id: @current_user.id, amount: 100)
     AccountTransaction.create(amount: 100, account_id: @account.id, note: "initialization")
-    @account.amount = 100
-    @account.save
   end
 end

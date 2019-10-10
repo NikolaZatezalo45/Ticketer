@@ -1,3 +1,13 @@
 = render 'shared/navbar'
-h1 Accounts#show
-p Find me in app/views/accounts/show.html.slim
+.form-container
+  h2 Account
+  table
+    tr
+      th
+        b Amount
+      th
+        b Note
+      -@account_transactions.each do |account_transaction|
+        tr
+          td = account_transaction.amount
+          td = account_transaction.note

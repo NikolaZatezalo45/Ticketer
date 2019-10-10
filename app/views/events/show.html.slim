@@ -8,17 +8,29 @@
       th
         b Category
       th
-        b Date
+        b Starts in
       th
         -if @event.date >= Date.today
           b Available Tickets
-        -else
+        -elsif @event.date < Date.today && current_user.is_admin?
           b Tickets Sold
       tr
         td = @event.name
         td = @event.category.name
-        td = @event.date
+        td = distance_of_time_in_words(@event.date, (Date.today))
         -if @event.date >= Date.today
-          td = @event.available_tickets
+          -if @event.available_tickets > 0
+            td = @event.available_tickets
+          -else
+            td Sold Out
         -else
           td = @event.tickets_sold
+  h2 Description
+  =@event.description
+  br
+  br
+  -if @event.available_tickets > 0
+    .actions
+      = button_to( "Purchase Tickets", '#')
+  -else 
+    h3 SOLD OUT

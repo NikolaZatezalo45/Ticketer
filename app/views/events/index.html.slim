@@ -17,7 +17,7 @@
                                     td = event.available_tickets
                                 -else
                                     td Sold Out
-                                td = "#{(event.date - (Date.today)).to_i/7} Weeks"
+                                td = distance_of_time_in_words(event.date, (Date.today))
                                 
     -else
         b There no Current Events
