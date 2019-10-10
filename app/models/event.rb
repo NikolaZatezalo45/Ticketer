@@ -6,6 +6,8 @@ class Event < ApplicationRecord
 
   scope :upcomingEvents, -> { where("date>=?", (Date.today)) }
   scope :pastEvents, -> { where("date<?", (Date.today)) }
+  scope :upcomingEventsOrdered, -> { where("date>=?", (Date.today)).order(date: :asc) }
+
 
   def available_tickets
     tickets.where(sold_originally: false).count + tickets.where(onresell: true).count

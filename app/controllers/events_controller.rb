@@ -5,6 +5,7 @@ class EventsController < ApplicationController
     @events = Event.all
     @upcomingEvents = @events.upcomingEvents
     @pastEvents = @events.pastEvents
+    @upcomingEventsOrdered = @events.upcomingEventsOrdered
   end
 
   def new
