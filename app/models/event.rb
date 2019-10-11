@@ -8,13 +8,16 @@ class Event < ApplicationRecord
   scope :pastEvents, -> { where("date<?", (Date.today)) }
   scope :upcomingEventsOrdered, -> { where("date>=?", (Date.today)).order(date: :asc) }
 
+  def marketplace_tickets
+    tickets.where(sold_originally: true) && tickets.where(onresell: true)
+  end 
 
   def amount_available_tickets
-    tickets.where(sold_originally: false).count + tickets.where(onresell: true).count
+    tickets.where(sold_originally: false).count
   end
 
   def available_tickets
-    tickets.where(sold_originally: false) || tickets.where(onresell: true)
+    tickets.where(sold_originally: false)
   end
 
   def tickets_sold

@@ -4,5 +4,6 @@ class TicketsController < ApplicationController
   end
 
   def show
+    @event = Event.find(params[:format])
   end
 end

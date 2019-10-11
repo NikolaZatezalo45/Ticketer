@@ -2,20 +2,57 @@
 .form-container
     h2 Your Profile
     b Name
-    br
-    ="#{@user.first_name} #{@user.last_name}"
-    br
-    br
-    b email
-    br
-    =@user.email
-    br
-    br
-    b Type
-    br
-    =@user.type
+    =<"#{@user.first_name} #{@user.last_name}"
     br
     br
     -if current_user.is_admin?
+        b email
+        br
+        =@user.email
+        br
+        br
+        b Type
+        br
+        =@user.type
+        br
+        br
         .actions
             = button_to( "My Events", user_events_path(@user), :method => :get)
+    -else
+        b Account Balance:
+        =<current_user.account.amount
+        br
+        br
+        -if @events.upcomingEvents.present?
+            h3 Your Current tickets
+            table
+                tr
+                    th
+                        b Number
+                    th
+                        b Name
+                    th
+                        b Sell?
+                    -current_user.tickets.each do |ticket|
+                        tr
+                        -if ticket.event.date >= Date.today
+                            td =<ticket.number
+                            td = ticket.event.name
+                            -if !ticket.onresell 
+                                td = button_to( "Sell", marketplace_sell_path(ticket), :method => :get)
+                            -else
+                                td  This ticket already on Sale
+        -if @events.pastEvents.present? 
+            h3 Past Tickets
+            table
+                tr
+                    th
+                        b Number
+                    th
+                        b Name
+                    -current_user.tickets.each do |ticket|
+                        tr
+                        -if ticket.event.date < Date.today
+                            td =<ticket.number
+                            td = ticket.event.name
+

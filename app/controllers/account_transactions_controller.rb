@@ -19,13 +19,5 @@ class AccountTransactionsController < ApplicationController
   def set_event
     @event = Event.find(params[:event_id])
   end
-  
-  def account_transaction_params
-    params.permit(
-      :amount,
-      :account_id,
-      :note,
-      :account_id
-    )
-  end
+
 end

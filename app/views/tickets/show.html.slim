@@ -1,0 +1,22 @@
+= render 'shared/navbar'
+.form-container
+  h3 Tickets on Sale
+  table
+    tr
+      th
+        b Number
+      th
+        b Name
+      th
+        b Starts in
+      th
+        b Price
+      th
+        b Buy?
+      -@event.marketplace_tickets.each do |ticket|
+        tr
+          td =<ticket.number
+          td = ticket.event.name
+          td = distance_of_time_in_words(ticket.event.date, (Date.today))
+          td = ticket.price
+          td = button_to( "Buy", marketplace_buy_path(ticket), :method => :get)
