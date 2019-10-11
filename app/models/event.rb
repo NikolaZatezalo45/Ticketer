@@ -9,9 +9,14 @@ class Event < ApplicationRecord
   scope :upcomingEventsOrdered, -> { where("date>=?", (Date.today)).order(date: :asc) }
 
 
-  def available_tickets
+  def amount_available_tickets
     tickets.where(sold_originally: false).count + tickets.where(onresell: true).count
   end
+
+  def available_tickets
+    tickets.where(sold_originally: false) || tickets.where(onresell: true)
+  end
+
   def tickets_sold
     tickets.all.count-tickets.where(sold_originally: false).count + tickets.where(onresell: true).count
   end

@@ -19,8 +19,8 @@
         td = @event.category.name
         td = distance_of_time_in_words(@event.date, (Date.today))
         -if @event.date >= Date.today
-          -if @event.available_tickets > 0
-            td = @event.available_tickets
+          -if @event.amount_available_tickets > 0
+            td = @event.amount_available_tickets
           -else
             td Sold Out
         -else
@@ -29,8 +29,10 @@
   =@event.description
   br
   br
-  -if @event.available_tickets > 0
+  -if @event.amount_available_tickets > 0  && @event.date < Date.today
+    h3 Can't buy tickets for events in the past
+  -elsif @event.amount_available_tickets > 0
     .actions
-      = button_to( "Purchase Tickets", '#')
+      = button_to( "Purchase Tickets", new_event_account_transaction_path(@event), :method => :get)
   -else 
     h3 SOLD OUT

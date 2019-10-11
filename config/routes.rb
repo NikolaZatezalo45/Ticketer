@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get 'account_transactions/show'
   get 'accounts/:id', to: 'accounts#show', as: 'account'
   get 'tickets/index'
   get 'tickets/show'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :categories
-  resources :events
+  resources :events do 
+    resources :account_transactions
+  end
   get '/users/:id', to: 'users#show', as: 'user'
   get '/users/:id/events', to: 'users#user_events', as: 'user_events'
   devise_scope :user do

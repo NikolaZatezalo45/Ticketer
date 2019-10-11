@@ -13,8 +13,8 @@
                     - @upcomingEventsOrdered.each do |event|
                             tr
                                 td = link_to event.name, event_path(event)
-                                -if event.available_tickets > 0
-                                    td = event.available_tickets
+                                -if event.amount_available_tickets > 0
+                                    td = event.amount_available_tickets
                                 -else
                                     td Sold Out
                                 td = distance_of_time_in_words(event.date, (Date.today))
