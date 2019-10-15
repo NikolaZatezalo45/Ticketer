@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'marketplace/index'
   get '/marketplace/sell/:id', to: 'marketplace#sell', as: 'marketplace_sell'
   get '/marketplace/buy/:id', to: 'marketplace#buy', as: 'marketplace_buy'
+  get '/marketplace/reclaim/:id', to: 'marketplace#reclaim', as: 'marketplace_reclaim'
+
 
   get 'accounts/:id', to: 'accounts#show', as: 'account'
   get 'tickets/index'

@@ -1,8 +1,5 @@
 class AccountTransactionsController < ApplicationController
   before_action :set_event, only: [:new, :create]
-
-  def show
-  end
   def new 
   end 
   def create

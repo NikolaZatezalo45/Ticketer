@@ -41,7 +41,7 @@
                             -if !ticket.onresell 
                                 td = button_to( "Sell", marketplace_sell_path(ticket), :method => :get)
                             -else
-                                td  This ticket already on Sale
+                                td = button_to( "Reclaim", marketplace_reclaim_path(ticket), :method => :get)        
         -if @events.pastEvents.present? 
             h3 Past Tickets
             table
@@ -55,4 +55,6 @@
                         -if ticket.event.date < Date.today
                             td =<ticket.number
                             td = ticket.event.name
+        -else
+            h3 You have no Past Tickets
 

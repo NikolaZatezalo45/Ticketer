@@ -5,9 +5,13 @@ class SetTicketService < ApplicationService
   end
 
   def call
+    if @ticket.purchaser == @user
+      @ticket.sold_on_marketplace = false
+    else
+      @ticket.sold_on_marketplace = true
+    end
     @ticket.purchaser = @user
     @ticket.onresell = false
-    @ticket.sold_on_marketplace = true
     @ticket.save
   end
 end

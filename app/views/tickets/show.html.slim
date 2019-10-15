@@ -19,7 +19,9 @@
           td = ticket.event.name
           td = distance_of_time_in_words(ticket.event.date, (Date.today))
           td = ticket.price
-          -if current_user.account.amount > ticket.price
+          -if current_user.account.amount > ticket.price && current_user != ticket.purchaser
             td = button_to( "Buy", marketplace_buy_path(ticket), :method => :get)
+          -elsif current_user == ticket.purchaser
+            td = button_to( "Reclaim", marketplace_reclaim_path(ticket), :method => :get)
           -else
             td insufficient Funds

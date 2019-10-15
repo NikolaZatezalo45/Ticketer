@@ -1,16 +1,38 @@
-.menu{
+.nav-container{
   background-color:rgb(174, 199, 128);
   font-weight: bold;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
 
+  ul li {
+    list-style: none;
+  }
+  
+  .balance {
+    display: flex;
+    padding-top: 1rem;
+  }
+
+  .navigation {
+    display: flex;
+    padding-top: 1rem;
+    padding-right: 2rem;
+
+    li {
+      margin-right: 1rem;
+    }
+  }
   
   .dropbtn {
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 11.2px;
+    padding-right: 1rem;
+
     color: #1779ba;
     border: none;
     font-weight: bold;
   }
+
   .dropdown-content {
     display: none;
     position: absolute;

@@ -1,26 +1,27 @@
 - if user_signed_in?
-  ul.menu.align-left
-    -if current_user.is_normal?
-      li Account Balance: R
-      => current_user.account.amount
-  ul.menu.align-right
-    - if current_user.is_admin?
-      li = link_to 'My Profile', user_path(current_user)
-      .dropdown
-        button.dropbtn Categories
-        .dropdown-content
-          li = link_to 'All Categories', categories_path
-          li = link_to 'Create Categories', new_category_path
-      .dropdown
-        button.dropbtn Events
-        .dropdown-content
-          li = link_to 'All Events', events_path
-          li = link_to 'My Events', user_events_path(current_user)
-          li = link_to 'Create Event', new_event_path
-      li = link_to 'Tickets', tickets_index_path
-    - else
+  div.nav-container
+    ul.balance
+      -if current_user.is_normal?
+        li Account Balance: R
+        => current_user.account.amount
+    ul.navigation
+      - if current_user.is_admin?
         li = link_to 'My Profile', user_path(current_user)
-        li = link_to 'Account', account_path(current_user)
-        li = link_to 'Events', events_path
-        li = link_to 'Marketplace', marketplace_index_path
-    li = link_to 'Log out', destroy_user_session_path, method: :delete
+        .dropdown
+          button.dropbtn Categories
+          .dropdown-content
+            li = link_to 'All Categories', categories_path
+            li = link_to 'Create Categories', new_category_path
+        .dropdown
+          button.dropbtn Events
+          .dropdown-content
+            li = link_to 'All Events', events_path
+            li = link_to 'My Events', user_events_path(current_user)
+            li = link_to 'Create Event', new_event_path
+        li = link_to 'Tickets', tickets_index_path
+      - else
+          li = link_to 'My Profile', user_path(current_user)
+          li = link_to 'Account', account_path(current_user)
+          li = link_to 'Events', events_path
+          li = link_to 'Marketplace', marketplace_index_path
+      li = link_to 'Log out', destroy_user_session_path, method: :delete

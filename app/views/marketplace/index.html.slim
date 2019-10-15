@@ -1,14 +1,18 @@
 = render 'shared/navbar'
 .form-container
-    h2 Marketplace
-    table
-      tr
-        th
-          b Name
-        th
-          b Number of Tickets
-        - @events.each do |event|
-            tr
-              -if !event.marketplace_tickets.empty?
-                td = link_to event.name, tickets_show_path(event)
-                td = event.marketplace_tickets.count
+    -if ticketsPresentOnMarketplace?
+      h2 Marketplace
+      table
+        tr
+          th
+            b Name
+          th
+            b Number of Tickets
+          - @events.each do |event|
+              tr
+                -if !event.marketplace_tickets.empty?
+                  td = link_to event.name, tickets_show_path(event)
+                  td = event.marketplace_tickets.count
+    -else
+      h3 There are currently no tickets on the Marketplace
+
