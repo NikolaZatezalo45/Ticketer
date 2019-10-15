@@ -18,7 +18,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params.merge(creator: current_user))
     if (@event.save)
-      TicketCreator.new(params[:event]).call
+      TicketCreatorService.new(params[:event]).call
       redirect_to events_path
     end
   end

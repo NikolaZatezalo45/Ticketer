@@ -1,4 +1,8 @@
 - if user_signed_in?
+  ul.menu.align-left
+    -if current_user.is_normal?
+      li Account Balance: R
+      => current_user.account.amount
   ul.menu.align-right
     - if current_user.is_admin?
       li = link_to 'My Profile', user_path(current_user)

@@ -34,8 +34,10 @@
   br
   -if @event.amount_available_tickets > 0  && @event.date < Date.today
     h3 Can't buy tickets for events in the past
-  -elsif @event.amount_available_tickets > 0
+  -elsif @event.amount_available_tickets > 0 && current_user.is_normal?
     .actions
       = button_to( "Purchase Tickets", new_event_account_transaction_path(@event), :method => :get)
+  -elsif @event.amount_available_tickets > 0 && current_user.is_admin?
+    h3 Can't purchase tickets as an admin
   -else 
     h3 SOLD OUT

@@ -1,4 +1,4 @@
-class TicketCreator < ApplicationService
+class TicketCreatorService < ApplicationService
     attr_reader :event
     
     def initialize(event)
