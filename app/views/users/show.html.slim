@@ -19,10 +19,6 @@
         .actions
             = button_to( "My Events", user_events_path(@user), :method => :get)
     -else
-        b Account Balance:
-        =<current_user.account.amount
-        br
-        br
         -if @events.upcomingEvents.present?
             h3 Your Current tickets
             table
@@ -33,15 +29,15 @@
                         b Name
                     th
                         b Sell?
-                    -current_user.tickets.each do |ticket|
+                    -current_user.tickets.sort.each do |ticket|
                         tr
-                        -if ticket.event.date >= Date.today
-                            td =<ticket.number
-                            td = ticket.event.name
-                            -if !ticket.onresell 
-                                td = button_to( "Sell", marketplace_sell_path(ticket), :method => :get)
-                            -else
-                                td = button_to( "Reclaim", marketplace_reclaim_path(ticket), :method => :get)        
+                            -if ticket.event.date >= Date.today
+                                td =<ticket.number
+                                td = ticket.event.name
+                                -if !ticket.onresell 
+                                    td = button_to( "Sell", marketplace_sell_path(ticket), :method => :get)
+                                -else
+                                    td = button_to( "Reclaim", marketplace_reclaim_path(ticket), :method => :get)        
         -if @events.pastEvents.present? 
             h3 Past Tickets
             table

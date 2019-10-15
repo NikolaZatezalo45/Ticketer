@@ -8,5 +8,6 @@ class UsersController < ApplicationController
     @userEvents = current_user.events
     @upcomingEvents = @userEvents.upcomingEvents
     @pastEvents = @userEvents.pastEvents
+    @upcomingEventsOrdered = @userEvents.upcomingEventsOrdered
   end
 end
