@@ -1,16 +1,19 @@
 = render 'shared/navbar'
-.form-container
-  h2 Account
-  table
-    tr
-      th
-        b Amount
-      th
-        b Note
-      th
-        b Date of Transaction
-      -@account_transactions.each do |account_transaction|
-        tr
-          td = account_transaction.amount
-          td = account_transaction.note
-          td = account_transaction.created_at
+.final-form
+  .imagex
+    =image_tag("Ticket.png")
+  .form-container
+    h2 Account
+    table
+      tr
+        th
+          b Amount
+        th
+          b Note
+        th
+          b Date of Transaction
+        -@account_transactions.each do |account_transaction|
+          tr
+            td = account_transaction.amount
+            td = account_transaction.note
+            td = account_transaction.created_at

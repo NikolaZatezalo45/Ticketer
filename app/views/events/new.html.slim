@@ -1,26 +1,29 @@
 = render 'shared/navbar'
-.form-container
-    h2 Create Event
-    = form_with model: @event, local: true do |f|
-        = f.label :'Name'
-        = f.text_field :name 
-        br
-        = f.label :'Number of tickets'
-        = f.number_field :number_of_tickets 
-        br
-        = f.label :'Price Of Ticket'
-        = f.number_field :price 
-        br
-        = f.label :'Date'
-        = f.date_field :date,  min: (Date.today+7.days)
-        br
-        = f.label :'Category'
-        = f.select(:category_id, Category.pluck(:name, :id))
-        br
-        = f.label :'Description'
-        = f.text_area :description 
-        br
-        .actions
-            = f.submit "Create Event"
+.final-form
+    .imagex
+        =image_tag("Ticket.png")
+    .form-container
+        h2 Create Event
+        = form_with model: @event, local: true do |f|
+            = f.label :'Name'
+            = f.text_field :name 
+            br
+            = f.label :'Number of tickets'
+            = f.number_field :number_of_tickets 
+            br
+            = f.label :'Price Of Ticket'
+            = f.number_field :price 
+            br
+            = f.label :'Date'
+            = f.date_field :date,  min: (Date.today+7.days)
+            br
+            = f.label :'Category'
+            = f.select(:category_id, Category.pluck(:name, :id))
+            br
+            = f.label :'Description'
+            = f.text_area :description 
+            br
+            .actions
+                = f.submit "Create Event"
 
-    
+        

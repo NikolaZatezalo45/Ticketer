@@ -1,44 +1,47 @@
 = render 'shared/navbar'
-.form-container
-    h2 Current Events
-    -if !@upcomingEvents.present?
-        b There are no Current Events
-    -else
-        table
-            tr
-                th
-                    b Name
-                th
-                    b Date
-                th
-                    b Number of tickets
-                -@upcomingEvents.each do |event|
-                    tr
-                        -if event.date >= Date.today
-                            td = event.name
-                            td = event.date
-                            td = event.number_of_tickets     
+.final-form
+    .imagex
+        =image_tag("Ticket.png")
+    .form-container
+        h2 Current Events
+        -if !@upcomingEvents.present?
+            b There are no Current Events
+        -else
+            table
+                tr
+                    th
+                        b Name
+                    th
+                        b Date
+                    th
+                        b Number of tickets
+                    -@upcomingEvents.each do |event|
+                        tr
+                            -if event.date >= Date.today
+                                td = event.name
+                                td = event.date
+                                td = event.number_of_tickets     
 
-                      
+                        
 
-    h2 Past Events
-    -if !@pastEvents.present?
-        b There are no Past Events
-    -else
-        table
-            tr
-                th
-                    b Name
-                th
-                    b Date
-                th
-                    b Number of tickets
-                -@category.events.each do |event|
-                    tr
-                        -if event.date < Date.today
-                            td = event.name
-                            td = event.date
-                            td = event.number_of_tickets
+        h2 Past Events
+        -if !@pastEvents.present?
+            b There are no Past Events
+        -else
+            table
+                tr
+                    th
+                        b Name
+                    th
+                        b Date
+                    th
+                        b Number of tickets
+                    -@category.events.each do |event|
+                        tr
+                            -if event.date < Date.today
+                                td = event.name
+                                td = event.date
+                                td = event.number_of_tickets
 
-                    
-        
+                        
+            

@@ -1,8 +1,6 @@
 - if user_signed_in?
   div.nav-container
     ul.balance
-      .imagex
-        =image_tag("Ticket.png")
       -if current_user.is_normal?
         li Account Balance: 
         = current_user.account.amount

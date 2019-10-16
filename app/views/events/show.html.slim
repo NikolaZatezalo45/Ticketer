@@ -1,43 +1,46 @@
 = render 'shared/navbar'
-.form-container
-  h2 Event
-  table
-    tr
-      th
-        b Name
-      th
-        b Category
-      th
-        b Starts in
-      th
-        -if @event.date >= Date.today
-          b Available Tickets
-        -elsif @event.date < Date.today && current_user.is_admin?
-          b Tickets Sold
-      th
-        b Price
+.final-form
+  .imagex
+      =image_tag("Ticket.png")
+  .form-container
+    h2 Event
+    table
       tr
-        td = @event.name
-        td = @event.category.name
-        td = distance_of_time_in_words(@event.date, (Date.today))
-        -if @event.date >= Date.today
-          -if @event.amount_available_tickets > 0
-            td = @event.amount_available_tickets
+        th
+          b Name
+        th
+          b Category
+        th
+          b Starts in
+        th
+          -if @event.date >= Date.today
+            b Available Tickets
+          -elsif @event.date < Date.today && current_user.is_admin?
+            b Tickets Sold
+        th
+          b Price
+        tr
+          td = @event.name
+          td = @event.category.name
+          td = distance_of_time_in_words(@event.date, (Date.today))
+          -if @event.date >= Date.today
+            -if @event.amount_available_tickets > 0
+              td = @event.amount_available_tickets
+            -else
+              td Sold Out
           -else
-            td Sold Out
-        -else
-          td = @event.tickets_sold
-        td = @event.tickets[0].price
-  h2 Description
-  =@event.description
-  br
-  br
-  -if @event.amount_available_tickets > 0  && @event.date < Date.today
-    h3 Can't buy tickets for events in the past
-  -elsif @event.amount_available_tickets > 0 && current_user.is_normal?
-    .actions
-      = button_to( "Purchase Tickets", new_event_account_transaction_path(@event), :method => :get)
-  -elsif @event.amount_available_tickets > 0 && current_user.is_admin?
-    h3 Can't purchase tickets as an admin
-  -else 
-    h3 SOLD OUT
+            td = @event.tickets_sold
+          td = @event.tickets[0].price
+    h2 Description
+    =@event.description
+    br
+    br
+    -if @event.amount_available_tickets > 0  && @event.date < Date.today
+      h3 Can't buy tickets for events in the past
+    -elsif @event.amount_available_tickets > 0 && current_user.is_normal?
+      .actions
+        = button_to( "Purchase Tickets", new_event_account_transaction_path(@event), :method => :get)
+    -elsif @event.amount_available_tickets > 0 && current_user.is_admin?
+      h3 Can't purchase tickets as an admin
+    -else 
+      h3 SOLD OUT

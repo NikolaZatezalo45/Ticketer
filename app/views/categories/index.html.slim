@@ -1,13 +1,16 @@
 = render 'shared/navbar'
-.form-container
-    h2 Categories
-    - if @categories.present?
-        - @categories.each do |category|
-            =link_to category.name, category_path(category)
-            br
-    - else
-        b There are currently no categories
-    br
-    .actions
-        = button_to( "Create Category", new_category_path, :method => :get)
+.final-form
+    .imagex
+        =image_tag("Ticket.png")
+    .form-container
+        h2 Categories
+        - if @categories.present?
+            - @categories.each do |category|
+                =link_to category.name, category_path(category)
+                br
+        - else
+            b There are currently no categories
+        br
+        .actions
+            = button_to( "Create Category", new_category_path, :method => :get)
 

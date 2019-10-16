@@ -1,9 +1,12 @@
 = render 'shared/navbar'
-.form-container
-    h2 Create Category
-    = form_with model: @category, local: true do |f|
-        = f.label :'Name'
-        = f.text_field :name 
-        br
-        .actions
-            = f.submit "Create Category"
+.final-form
+    .imagex
+        =image_tag("Ticket.png")
+    .form-container
+        h2 Create Category
+        = form_with model: @category, local: true do |f|
+            = f.label :'Name'
+            = f.text_field :name 
+            br
+            .actions
+                = f.submit "Create Category"
