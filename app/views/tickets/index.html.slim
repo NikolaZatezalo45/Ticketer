@@ -1,30 +1,33 @@
 = render 'shared/navbar'
-.form-container
-    h2 Tickets
-    - if @tickets.present?
-        table
-            tr
-                th
-                    b Serial Number
-                th
-                    b Event
-                th
-                    b Price
-                th
-                    b Sold Originally
-                th
-                    b On Resell
-                th
-                    b Sold On Marketplace
-                - @tickets.each do |ticket|
-                        tr
-                            td = ticket.number
-                            td = ticket.event.name
-                            td = ticket.price
-                            td = ticket.sold_originally
-                            td = ticket.onresell
-                            td = ticket.sold_on_marketplace
+.final-form
+    .imagex
+        =image_tag("Ticket.png")
+    .form-container
+        h2 Tickets
+        - if @tickets.present?
+            table.account-table
+                tr
+                    th
+                        b Serial Number
+                    th
+                        b Event
+                    th
+                        b Price
+                    th
+                        b Sold Originally
+                    th
+                        b On Resell
+                    th
+                        b Sold On Marketplace
+                    - @tickets.each do |ticket|
+                            tr
+                                td = ticket.number
+                                td = ticket.event.name
+                                td = ticket.price
+                                td = ticket.sold_originally
+                                td = ticket.onresell
+                                td = ticket.sold_on_marketplace
 
-    - else
-        b There are currently no Tickets
-
+        - else
+            b There are currently no Tickets
+= render 'shared/footer'

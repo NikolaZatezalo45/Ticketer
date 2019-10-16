@@ -24,7 +24,7 @@
         -else
             -if @events.upcomingEvents.present?
                 h3 Your Current tickets
-                table
+                table.simple-table
                     tr
                         th
                             b Number
@@ -43,7 +43,7 @@
                                         td = button_to( "Reclaim", marketplace_reclaim_path(ticket), :method => :get)        
             -if @events.pastEvents.present? 
                 h3 Past Tickets
-                table
+                table.simple-table
                     tr
                         th
                             b Number
@@ -57,3 +57,4 @@
             -else
                 h3 You have no Past Tickets
 
+= render 'shared/footer'

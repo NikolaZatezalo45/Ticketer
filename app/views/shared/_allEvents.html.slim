@@ -36,3 +36,5 @@
             -if current_user.is_admin?
                 .actions
                     = button_to( "Create Event", new_event_path, :method => :get)
+= render 'shared/footer'
+

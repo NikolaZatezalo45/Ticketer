@@ -1,10 +1,52 @@
 .final-form{
   display: flex;
+  height: calc(100vh - 60px);
+  
   .form-container {
     flex: 1;
-    margin-left: -25px
+    margin-left: -25px;
+    margin-right: auto;
   }
+
   .image{
     flex: 1;
+  }
+
+  .simple-table{
+    overflow-y: scroll;
+    height: 50%;
+    width: 100%;
+    display: block;
+
+    th{
+      width: 50%;
+    }
+
+    tr{
+      width: 50%;
+    }
+
+    td {
+      width: 33%;
+      text-align: center;
+    }
+  }
+  .account-table{
+    overflow-y: scroll;
+    height: 70%;
+    width: 100%;
+    display: block;
+
+    th{
+      width: 40%;
+    }
+
+    tr{
+      // width: 33%;
+    }
+
+    td {
+      text-align: center;
+    }
   }
 }

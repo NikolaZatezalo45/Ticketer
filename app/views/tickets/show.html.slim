@@ -1,27 +1,32 @@
 = render 'shared/navbar'
-.form-container
-  h3 Tickets on Sale
-  table
-    tr
-      th
-        b Number
-      th
-        b Name
-      th
-        b Starts in
-      th
-        b Price
-      th
-        b Buy?
-      -@event.marketplace_tickets.each do |ticket|
-        tr
-          td =<ticket.number
-          td = ticket.event.name
-          td = distance_of_time_in_words(ticket.event.date, (Date.today))
-          td = ticket.price
-          -if current_user.account.amount > ticket.price && current_user != ticket.purchaser
-            td = button_to( "Buy", marketplace_buy_path(ticket), :method => :get)
-          -elsif current_user == ticket.purchaser
-            td = button_to( "Reclaim", marketplace_reclaim_path(ticket), :method => :get)
-          -else
-            td insufficient Funds
+.final-form
+  .imagex
+    =image_tag("Ticket.png")
+  .form-container
+    h3 Tickets on Sale
+    table
+      tr
+        th
+          b Number
+        th
+          b Name
+        th
+          b Starts in
+        th
+          b Price
+        th
+          b Buy?
+        -@event.marketplace_tickets.each do |ticket|
+          tr
+            td =<ticket.number
+            td = ticket.event.name
+            td = distance_of_time_in_words(ticket.event.date, (Date.today))
+            td = ticket.price
+            -if current_user.account.amount > ticket.price && current_user != ticket.purchaser
+              td = button_to( "Buy", marketplace_buy_path(ticket), :method => :get)
+            -elsif current_user == ticket.purchaser
+              td = button_to( "Reclaim", marketplace_reclaim_path(ticket), :method => :get)
+            -else
+              td insufficient Funds
+= render 'shared/footer'
+

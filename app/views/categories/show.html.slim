@@ -7,7 +7,7 @@
         -if !@upcomingEvents.present?
             b There are no Current Events
         -else
-            table
+            table.simple-table
                 tr
                     th
                         b Name
@@ -28,7 +28,7 @@
         -if !@pastEvents.present?
             b There are no Past Events
         -else
-            table
+            table.simple-table
                 tr
                     th
                         b Name
@@ -42,6 +42,4 @@
                                 td = event.name
                                 td = event.date
                                 td = event.number_of_tickets
-
-                        
-            
+= render 'shared/footer'
