@@ -1,9 +1,11 @@
 - if user_signed_in?
   div.nav-container
     ul.balance
+      .imagex
+        =image_tag("Ticket.png")
       -if current_user.is_normal?
-        li Account Balance: R
-        => current_user.account.amount
+        li Account Balance: 
+        = current_user.account.amount
     ul.navigation
       - if current_user.is_admin?
         li = link_to 'My Profile', user_path(current_user)

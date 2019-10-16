@@ -1,10 +1,11 @@
 .nav-container{
-  background-color:rgb(174, 199, 128);
+  background-color:#778884;
   font-weight: bold;
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
   width: 100vw;
+
 
   ul li {
     list-style: none;
@@ -14,7 +15,10 @@
     display: flex;
     padding-top: 1rem;
   }
-
+  .imagex {
+    max-width: 40px;
+    max-height: 40px;  
+}
   .navigation {
     display: flex;
     padding-top: 1rem;
@@ -28,7 +32,7 @@
   .dropbtn {
     padding-right: 1rem;
 
-    color: #1779ba;
+    color: #000000;
     border: none;
     font-weight: bold;
   }
