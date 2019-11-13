@@ -43,7 +43,7 @@
                                         td = button_to( "Reclaim", marketplace_reclaim_path(ticket), :method => :get)        
             -if @events.pastEvents.present? 
                 h3 Past Tickets
-                table.simple-table
+                table.past
                     tr
                         th
                             b Number

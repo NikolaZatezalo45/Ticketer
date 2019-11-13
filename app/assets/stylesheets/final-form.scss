@@ -1,28 +1,28 @@
-.final-form{
+.final-form {
   display: flex;
   height: calc(100vh - 60px);
-  
+
   .form-container {
     flex: 1;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .image{
+  .image {
     flex: 1;
   }
 
-  .simple-table{
+  .simple-table {
     overflow-y: scroll;
-    height: 50%;
+    height: 30%;
     width: 100%;
     display: block;
 
-    th{
+    th {
       width: 50%;
     }
 
-    tr{
+    tr {
       width: 50%;
     }
 
@@ -31,17 +31,35 @@
       text-align: center;
     }
   }
-  .account-table{
+  .past {
+    overflow-y: scroll;
+    height: 30%;
+    width: fit-content;
+    display: block;
+    th {
+      width: 60%;
+    }
+
+    tr {
+      width: 60%;
+    }
+
+    td {
+      width: 60%;
+      text-align: center;
+    }
+  }
+  .account-table {
     overflow-y: scroll;
     height: 70%;
     width: 100%;
     display: block;
 
-    th{
+    th {
       width: 40%;
     }
 
-    tr{
+    tr {
       // width: 33%;
     }
 
